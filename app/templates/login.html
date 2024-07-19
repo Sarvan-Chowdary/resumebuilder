@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css">
+    <style>
+        .container{
+            margin: auto;
+            width: 40%;
+            border: 3px solid rgb(169, 155, 155);
+            padding: 35px;
+            text-align: center;
+        }
+         h1{
+            margin-top: 5%;
+        } 
+        button{
+            width: 100%;
+        }
+        body{
+            background-image: linear-gradient(to left,rgb(140, 126, 243),rgb(102, 246, 176));
+        }
+    </style>
 </head>
 <body>
-    <form method="post">
-        {%csrf_token%}
-        {{form}}
-        <button type="submit" class="btn btn-primary">Login</button>
-        {%if messages%}
-        {% for message in messages%}
-        <script>
-            alert("{{message}}")
-        </script>
-        {%endfor%}
-        {%endif%}
-    </form><br>
-    <form action="{% url 'register' %}">
-        <button type="submit" class="btn btn-primary">Sign up</button>
-    </form>
+    <center><h1>Resume Builder</h1></center>
+    <div class="container">
+        <form method="post">
+            {%csrf_token%}
+            {{form}}
+            <br><button type="submit" class="btn btn-primary">Login</button>
+            {%if messages%}
+            {% for message in messages%}
+            <script>
+                alert("{{message}}")
+            </script>
+            {%endfor%}
+            {%endif%}
+        </form><br>
+        <form action="{% url 'register' %}">
+            <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+    </div>
 </body>
 </html>

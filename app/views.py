@@ -29,7 +29,8 @@ def index(request):
             project = project
         )
         pr1.save()
-        return HttpResponse('Generation successful')
+        context={}
+        return render(request,'success.html',context)
     context={
         "form" : resume_form()
     }
